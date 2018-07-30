@@ -9,7 +9,7 @@ body{
     padding: 0;
     font-family: arial;
 }
-.big-upload-button{
+/*.big-upload-button{
     display: block;
     width: 100%;
     height: 100%;
@@ -39,6 +39,33 @@ body{
     height: 100%;
     vertical-align: middle;
 }
+*/
+.imagebar{
+    display: flex;
+    width: 100%;
+    height: 150px;
+}
+.imagebar_label{
+    display: table-cell;
+    flex-grow: 1;
+    background-color: #f00;
+    vertical-align: middle;
+    height: 150px;
+}
+.imagebar_imagearea{
+    background-color: #ff0;
+}
+#imagebar_image{
+    height: 150px;
+    width: auto;
+}
+.big-upload-button{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center; 
+    font-size: 2.0em;
+}
 </style>
 <script type="text/javascript">
 /*if ('serviceWorker' in navigator) {
@@ -58,7 +85,7 @@ function PreviewImage() {
     oFReader.readAsDataURL(document.getElementById("image_upload").files[0]);
 
     oFReader.onload = function (oFREvent) {
-        document.getElementById("imagepreview_image").src = oFREvent.target.result;
+        document.getElementById("imagebar_image").src = oFREvent.target.result;
     };
 };
 </script>
@@ -66,6 +93,20 @@ function PreviewImage() {
 <body>
 
 <div class="imagebar">
+    <div class="imagebar_label">
+        <label>
+            <div class="big-upload-button">
+                <input type="file" accept="image/*" capture="camera" id="image_upload" style="display:none;" onchange="PreviewImage();">
+                Front Image
+            </div>
+        </label>
+    </div>
+    <div class="imagebar_imagearea">
+        <img id="imagebar_image">
+    </div>
+</div>
+
+<!--<div class="imagebar">
 <div class="imagebar_label">
     <div>
         <label class="big-upload-button">
@@ -75,7 +116,7 @@ function PreviewImage() {
     </div>
 </div>
 <div class="imagepreview"><img id="imagepreview_image"></div>
-</div>
+</div>-->
 
 <!--
 <table cellpadding="0" cellspacing="0" width="100%">
