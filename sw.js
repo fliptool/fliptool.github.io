@@ -1,4 +1,4 @@
-var CACHE_NAME = 'fliptool-capture-v2'
+var CACHE_NAME = 'fliptool-capture-v6'
 
 var urlsToCache = [
   './index.html'
