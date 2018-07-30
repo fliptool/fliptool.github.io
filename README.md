@@ -1,1 +1,2 @@
-# fliptool.github.io
+# FlipTool Capture
+A simple image capture tool for my FlipTool inventory management system for laptop computers. Intended to be used on a mobile phone. GitHub used for GitHub Pages support. Images are sent to an PHP server on my local network, so this is probably not useful for anyone but myself.

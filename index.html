@@ -40,6 +40,9 @@
             align-items: center; 
             font-size: 2.0em;
         }
+        .submit_button{
+            background-color: #afa;
+        }
     </style>
     <script type="text/javascript">
         if ('serviceWorker' in navigator) {
@@ -65,74 +68,86 @@
     </script>
 </head>
 <body>
-    <div class="imagebar">
-        <div class="imagebar_label">
-            <label>
-                <div class="big-upload-button">
-                    <input type="file" accept="image/*" capture="camera" id="image_upload_front" style="display:none;" onchange="preview_image('front');">
-                    Front Image
-                </div>
-            </label>
+    <iframe style="display: none;" name="formframe" id="formframe"></iframe>
+    <form target="formframe" method="POST" action="http://dodoid.net/camera_test/submit.php">
+        <div class="imagebar">
+            <div class="imagebar_label">
+                <label>
+                    <div class="big-upload-button">
+                        <input type="file" accept="image/*" capture="camera" id="image_upload_front" style="display:none;" onchange="preview_image('front');">
+                        Front Image
+                    </div>
+                </label>
+            </div>
+            <div class="imagebar_imagearea">
+                <img class="imagebar_image" id="imagebar_image_front">
+            </div>
         </div>
-        <div class="imagebar_imagearea">
-            <img class="imagebar_image" id="imagebar_image_front">
-        </div>
-    </div>
 
-    <div class="imagebar">
-        <div class="imagebar_label">
-            <label>
-                <div class="big-upload-button">
-                    <input type="file" accept="image/*" capture="camera" id="image_upload_left" style="display:none;" onchange="preview_image('left');">
-                    Left Ports Image
-                </div>
-            </label>
+        <div class="imagebar">
+            <div class="imagebar_label">
+                <label>
+                    <div class="big-upload-button">
+                        <input type="file" accept="image/*" capture="camera" id="image_upload_left" style="display:none;" onchange="preview_image('left');">
+                        Left Ports Image
+                    </div>
+                </label>
+            </div>
+            <div class="imagebar_imagearea">
+                <img class="imagebar_image" id="imagebar_image_left">
+            </div>
         </div>
-        <div class="imagebar_imagearea">
-            <img class="imagebar_image" id="imagebar_image_left">
-        </div>
-    </div>
 
-    <div class="imagebar">
-        <div class="imagebar_label">
-            <label>
-                <div class="big-upload-button">
-                    <input type="file" accept="image/*" capture="camera" id="image_upload_right" style="display:none;" onchange="preview_image('right');">
-                    Right Ports Image
-                </div>
-            </label>
+        <div class="imagebar">
+            <div class="imagebar_label">
+                <label>
+                    <div class="big-upload-button">
+                        <input type="file" accept="image/*" capture="camera" id="image_upload_right" style="display:none;" onchange="preview_image('right');">
+                        Right Ports Image
+                    </div>
+                </label>
+            </div>
+            <div class="imagebar_imagearea">
+                <img class="imagebar_image" id="imagebar_image_right">
+            </div>
         </div>
-        <div class="imagebar_imagearea">
-            <img class="imagebar_image" id="imagebar_image_right">
-        </div>
-    </div>
 
-    <div class="imagebar">
-        <div class="imagebar_label">
-            <label>
-                <div class="big-upload-button">
-                    <input type="file" accept="image/*" capture="camera" id="image_upload_top" style="display:none;" onchange="preview_image('top');">
-                    Lid Top Image
-                </div>
-            </label>
+        <div class="imagebar">
+            <div class="imagebar_label">
+                <label>
+                    <div class="big-upload-button">
+                        <input type="file" accept="image/*" capture="camera" id="image_upload_top" style="display:none;" onchange="preview_image('top');">
+                        Lid Top Image
+                    </div>
+                </label>
+            </div>
+            <div class="imagebar_imagearea">
+                <img class="imagebar_image" id="imagebar_image_top">
+            </div>
         </div>
-        <div class="imagebar_imagearea">
-            <img class="imagebar_image" id="imagebar_image_top">
-        </div>
-    </div>
 
-    <div class="imagebar">
-        <div class="imagebar_label">
-            <label>
-                <div class="big-upload-button">
-                    <input type="file" accept="image/*" capture="camera" id="image_upload_extra" style="display:none;" onchange="preview_image('extra');">
-                    Extra Image
-                </div>
-            </label>
+        <div class="imagebar">
+            <div class="imagebar_label">
+                <label>
+                    <div class="big-upload-button">
+                        <input type="file" accept="image/*" capture="camera" id="image_upload_extra" style="display:none;" onchange="preview_image('extra');">
+                        Extra Image
+                    </div>
+                </label>
+            </div>
+            <div class="imagebar_imagearea">
+                <img class="imagebar_image" id="imagebar_image_extra">
+            </div>
         </div>
-        <div class="imagebar_imagearea">
-            <img class="imagebar_image" id="imagebar_image_extra">
+        <div class="imagebar">
+            <div class="imagebar_label submit_button">
+                <label>
+                    <div class="big-upload-button">
+                        Submit &#8227;
+                    </div>
+                </label>
+            </div>
         </div>
-    </div>
+    </form>
 </body>
 </html>
