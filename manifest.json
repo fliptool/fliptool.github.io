@@ -1,6 +1,6 @@
 {
   "short_name": "Capture",
-  "name": "FlipTool Capture Boi",
+  "name": "FlipTool Capture",
   "icons": [
     {
       "src": "camera-192.png",
@@ -8,15 +8,15 @@
       "sizes": "192x192"
     },
     {
-      "src": "camera-512-512.png",
+      "src": "camera-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/index.html",
-  "background_color": "#FF69B4",
+  "start_url": "index.html",
+  "background_color": "#000",
   "display": "standalone",
   "orientation": "landscape",
   "scope": ".",
-  "theme_color": "#FF69B4"
+  "theme_color": "#000"
 }

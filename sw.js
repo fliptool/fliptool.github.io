@@ -1,7 +1,9 @@
 var CACHE_NAME = 'fliptool-capture-v6'
 
 var urlsToCache = [
-  './index.html'
+  './index.html',
+  './camera-192.png',
+  './camera-512.png'
 ]
 
 self.addEventListener('install', function(event) {

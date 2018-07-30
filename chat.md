@@ -86,4 +86,14 @@ I personally have my VS Code set up to automatically add everything new/changed 
 
 Is everything updated?
 
-appear
+appears so
+
+Launches faster now, the "tap the text only glitch" is gone, however the icon still doesn't change
+
+Just the chrome-made "G" on grey background
+
+nice
+lemme update the SW again
+okay try now
+
+Trying
