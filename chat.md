@@ -97,3 +97,15 @@ lemme update the SW again
 okay try now
 
 Trying
+
+Okay, now we have the icon, but it's using the outdated manifest where it's called "Fliptool Capture Boi" rather than "Fliptool Capture"
+
+Actually give me a moment, might not have cleared cache on phone
+
+this is a service worker issue
+clear cache on your phone, then use wireless devtools to nuke the service worker
+
+Actually, cleared it, it works now. Will still try to figure out how to nuke service worker, give me a moment
+
+nordebook has a touch bar when
+anyways I'm going now bye loser
