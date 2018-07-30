@@ -21,13 +21,17 @@ body{
 .imagebar{
     display: table;
     width: 100%;
-    height: 20%;
+    height: 150px;
 }
 .imagepreview{
-    display: table-cell;
+    display: inline-block;
     background-color: #00f;
-    width: 100px;
     height: 100%;
+}
+#imagepreview_image{
+    height: 150px;
+    width: auto;
+    display: block;
 }
 .imagebar_label{
     display: table-cell;
@@ -54,7 +58,7 @@ function PreviewImage() {
     oFReader.readAsDataURL(document.getElementById("image_upload").files[0]);
 
     oFReader.onload = function (oFREvent) {
-        document.getElementById("upload_preview").src = oFREvent.target.result;
+        document.getElementById("imagepreview_image").src = oFREvent.target.result;
     };
 };
 </script>
@@ -70,7 +74,7 @@ function PreviewImage() {
         </label>
     </div>
 </div>
-<div class="imagepreview">Test</div>
+<div class="imagepreview"><img id="imagepreview_image"></div>
 </div>
 
 <!--
