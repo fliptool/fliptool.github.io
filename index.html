@@ -91,6 +91,27 @@
             border: 1px solid white;
             margin-left: 10px;
         }
+        .overlay_frame{
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            height: 80%;
+            width: 80%;
+            top: 10%;
+            left: 10%;
+            border: 2px solid black;
+        }
+        #formframe{
+            border: 0;
+            background-color: white;
+            flex-grow: 1;
+        }
+        .frame_close_button{
+            background-color: #afa;
+            text-align: center;
+            font-size: 2.0em;
+            line-height: 2.0em;
+        }
     </style>
     <script type="text/javascript">
         /*if ('serviceWorker' in navigator) {
@@ -149,30 +170,40 @@
         }
 
         function submit(){
-            alert("Clicked");
-            //document.getElementById("imageform").submit();
+            document.getElementById("overlay_frame").style.display = "flex";
+            document.getElementById("imageform").submit();
+        }
+
+        function close_frame(){
+            document.getElementById("overlay_frame").style.display = "none";
         }
     </script>
 </head>
 <body onload="setup()">
-    <iframe style="display: none;" name="formframe" id="formframe"></iframe>
-    <div class="topbar">
-        <div class="imagebar_label">
-            <div class="big-upload-button">
-                Upload Images for: 
-                <input class="machine_number_input" type="text" size="3" pattern="[0-9]*" inputmode="numeric">
-            </div>
-        </div>
-        <div class="imagebar_imagearea settings_button" onclick="show_settings()">
-            <img class="imagebar_image" src="settings-icon.png">
+    <div class="overlay_frame" id="overlay_frame">
+        <iframe name="formframe" id="formframe"></iframe>
+        <br>
+        <div class="frame_close_button" onclick="close_frame()">
+            Close Frame
         </div>
     </div>
-    <form target="formframe" method="POST" id="imageform">
+    <form target="formframe" method="POST" enctype="multipart/form-data" id="imageform">
+        <div class="topbar">
+            <div class="imagebar_label">
+                <div class="big-upload-button">
+                    Upload Images for: 
+                    <input name="machine_id" class="machine_number_input" type="text" size="3" pattern="[0-9]*" inputmode="numeric">
+                </div>
+            </div>
+            <div class="imagebar_imagearea settings_button" onclick="show_settings()">
+                <img class="imagebar_image" src="settings-icon.png">
+            </div>
+        </div>
         <div class="imagebar">
             <div class="imagebar_label">
                 <label>
                     <div class="big-upload-button">
-                        <input type="file" accept="image/*" capture="camera" id="image_upload_front" style="display:none;" onchange="preview_image('front');">
+                        <input type="file" name="front-image" accept="image/*" capture="camera" id="image_upload_front" style="display:none;" onchange="preview_image('front');">
                         Front Image
                     </div>
                 </label>
@@ -186,7 +217,7 @@
             <div class="imagebar_label">
                 <label>
                     <div class="big-upload-button">
-                        <input type="file" accept="image/*" capture="camera" id="image_upload_left" style="display:none;" onchange="preview_image('left');">
+                        <input type="file" name="left-image" accept="image/*" capture="camera" id="image_upload_left" style="display:none;" onchange="preview_image('left');">
                         Left Ports Image
                     </div>
                 </label>
@@ -200,7 +231,7 @@
             <div class="imagebar_label">
                 <label>
                     <div class="big-upload-button">
-                        <input type="file" accept="image/*" capture="camera" id="image_upload_right" style="display:none;" onchange="preview_image('right');">
+                        <input type="file" name="right-image" accept="image/*" capture="camera" id="image_upload_right" style="display:none;" onchange="preview_image('right');">
                         Right Ports Image
                     </div>
                 </label>
@@ -214,7 +245,7 @@
             <div class="imagebar_label">
                 <label>
                     <div class="big-upload-button">
-                        <input type="file" accept="image/*" capture="camera" id="image_upload_top" style="display:none;" onchange="preview_image('top');">
+                        <input type="file" name="top-image" accept="image/*" capture="camera" id="image_upload_top" style="display:none;" onchange="preview_image('top');">
                         Lid Top Image
                     </div>
                 </label>
@@ -228,7 +259,7 @@
             <div class="imagebar_label">
                 <label>
                     <div class="big-upload-button">
-                        <input type="file" accept="image/*" capture="camera" id="image_upload_extra" style="display:none;" onchange="preview_image('extra');">
+                        <input type="file" name="extra-image" accept="image/*" capture="camera" id="image_upload_extra" style="display:none;" onchange="preview_image('extra');">
                         Extra Image
                     </div>
                 </label>
