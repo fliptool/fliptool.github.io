@@ -94,7 +94,7 @@
         .overlay_frame{
             display: none;
             flex-direction: column;
-            position: absolute;
+            position: fixed;
             height: 80%;
             width: 80%;
             top: 10%;
@@ -203,7 +203,7 @@
             <div class="imagebar_label">
                 <label>
                     <div class="big-upload-button">
-                        <input type="file" name="front-image" accept="image/*" capture="camera" id="image_upload_front" style="display:none;" onchange="preview_image('front');">
+                        <input type="file" name="front-image" accept="image/*,capture=camera" capture="camera" id="image_upload_front" style="display:none;" onchange="preview_image('front');">
                         Front Image
                     </div>
                 </label>
