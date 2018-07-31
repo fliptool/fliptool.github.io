@@ -56,6 +56,7 @@
             background-repeat: no-repeat;
         }
         #settings_page{
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -68,6 +69,13 @@
         .textbox{
             width: 100%;
             padding: 15px;
+        }
+        .always_bottom{
+            position: absolute;
+            bottom: 0;
+        }
+        .black_text{
+            color: black;
         }
     </style>
     <script type="text/javascript">
@@ -104,6 +112,14 @@
 
         function close_large_image(){
             document.getElementById("large_image").style.display = "none";
+        }
+
+        function show_settings(){
+            document.getElementById("settings_page").style.display = "block";
+        }
+
+        function save_settings(){
+            document.getElementById("settings_page").style.display = "none";
         }
     </script>
 </head>
@@ -187,6 +203,9 @@
                     </div>
                 </label>
             </div>
+            <div class="imagebar_imagearea settings_button" onclick="show_settings()">
+                <img class="imagebar_image" src="settings-icon.png">
+            </div>
         </div>
     </form>
     <div id="large_image" onclick="close_large_image()"></div>
@@ -195,8 +214,15 @@
         <b>Upload To:</b>
         <input type="text" placeholder="Upload URL" class="textbox"><br>
         <i>Sets the URL to upload images to. Should be a FlipTool server.</i>
-        <br><br>
-
+        <div class="imagebar always_bottom black_text">
+            <div class="imagebar_label submit_button" onclick="save_settings();">
+                <label>
+                    <div class="big-upload-button">
+                        Save Settings &#8227;
+                    </div>
+                </label>
+            </div>
+        </div>
     </div>
 </body>
 </html>
