@@ -55,6 +55,21 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+        #settings_page{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        .textbox{
+            width: 100%;
+            padding: 15px;
+            font-size: 1.8em;
+        }
     </style>
     <script type="text/javascript">
         if ('serviceWorker' in navigator) {
@@ -176,5 +191,13 @@
         </div>
     </form>
     <div id="large_image" onclick="close_large_image()"></div>
+    <div id="settings_page">
+        <h1>FlipTool Capture Settings</h1>
+        <b>Upload To:</b>
+        <input type="text" placeholder="Upload URL" class="textbox"><br>
+        <i>Sets the URL to upload images to. Should be a FlipTool server.</i>
+        <br><br>
+
+    </div>
 </body>
 </html>
