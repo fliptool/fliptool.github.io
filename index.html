@@ -77,6 +77,20 @@
         .black_text{
             color: black;
         }
+        .topbar{
+            background-color: black;
+            color: white;
+            display: flex;
+            width: 100%;
+            height: 100px;
+        }
+        .machine_number_input{
+            background-color: black;
+            font-size: 1.0em;
+            color: white;
+            border: 1px solid white;
+            margin-left: 10px;
+        }
     </style>
     <script type="text/javascript">
         /*if ('serviceWorker' in navigator) {
@@ -121,20 +135,39 @@
         function save_settings(){
             localStorage.server = document.getElementById("serverbox").value;
             document.getElementById("settings_page").style.display = "none";
+            document.getElementById("imageform").action = localStorage.server;
         }
 
         function setup(){
             if(localStorage.server == undefined || localStorage.server == "" || localStorage.server == "undefined"){
                 show_settings();
             }else{
-                document.getElementById("serverbox").value = localStorage.server
+                document.getElementById("serverbox").value = localStorage.server;
             }
+
+            document.getElementById("imageform").action = localStorage.server;
+        }
+
+        function submit(){
+            alert("Clicked");
+            //document.getElementById("imageform").submit();
         }
     </script>
 </head>
 <body onload="setup()">
     <iframe style="display: none;" name="formframe" id="formframe"></iframe>
-    <form target="formframe" method="POST" action="http://dodoid.net/camera_test/submit.php">
+    <div class="topbar">
+        <div class="imagebar_label">
+            <div class="big-upload-button">
+                Upload Images for: 
+                <input class="machine_number_input" type="text" size="3" pattern="\d*">
+            </div>
+        </div>
+        <div class="imagebar_imagearea settings_button" onclick="show_settings()">
+            <img class="imagebar_image" src="settings-icon.png">
+        </div>
+    </div>
+    <form target="formframe" method="POST" id="imageform">
         <div class="imagebar">
             <div class="imagebar_label">
                 <label>
@@ -205,15 +238,12 @@
             </div>
         </div>
         <div class="imagebar">
-            <div class="imagebar_label submit_button">
+            <div class="imagebar_label submit_button" onclick="submit()">
                 <label>
                     <div class="big-upload-button">
                         Submit &#8227;
                     </div>
                 </label>
-            </div>
-            <div class="imagebar_imagearea settings_button" onclick="show_settings()">
-                <img class="imagebar_image" src="settings-icon.png">
             </div>
         </div>
     </form>
