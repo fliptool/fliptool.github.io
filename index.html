@@ -119,11 +119,20 @@
         }
 
         function save_settings(){
+            localStorage.server = document.getElementById("serverbox").value;
             document.getElementById("settings_page").style.display = "none";
+        }
+
+        function setup(){
+            if(localStorage.server == undefined || localStorage.server == "" || localStorage.server == "undefined"){
+                show_settings();
+            }else{
+                document.getElementById("serverbox").value = localStorage.server
+            }
         }
     </script>
 </head>
-<body>
+<body onload="setup()">
     <iframe style="display: none;" name="formframe" id="formframe"></iframe>
     <form target="formframe" method="POST" action="http://dodoid.net/camera_test/submit.php">
         <div class="imagebar">
@@ -212,7 +221,7 @@
     <div id="settings_page">
         <h1>FlipTool Capture Settings</h1>
         <b>Upload To:</b>
-        <input type="text" placeholder="Upload URL" class="textbox"><br>
+        <input type="text" placeholder="Upload URL" class="textbox" id="serverbox"><br>
         <i>Sets the URL to upload images to. Should be a FlipTool server.</i>
         <div class="imagebar always_bottom black_text">
             <div class="imagebar_label submit_button" onclick="save_settings();">
