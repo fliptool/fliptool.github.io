@@ -43,6 +43,18 @@
         .submit_button{
             background-color: #afa;
         }
+        #large_image{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: none;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
     </style>
     <script type="text/javascript">
         if ('serviceWorker' in navigator) {
@@ -65,6 +77,20 @@
                 document.getElementById("imagebar_image_" + image_type).src = oFREvent.target.result;
             };
         };
+
+        function image_expand(image_type){
+            var oFReader = new FileReader();
+            oFReader.readAsDataURL(document.getElementById("image_upload_" + image_type).files[0]);
+
+            oFReader.onload = function (oFREvent) {
+                document.getElementById("large_image").style.backgroundImage = "url(" + oFREvent.target.result + ")";
+                document.getElementById("large_image").style.display = "block";
+            };
+        }
+
+        function close_large_image(){
+            document.getElementById("large_image").style.display = "none";
+        }
     </script>
 </head>
 <body>
@@ -79,7 +105,7 @@
                     </div>
                 </label>
             </div>
-            <div class="imagebar_imagearea">
+            <div class="imagebar_imagearea" onclick="image_expand('front')">
                 <img class="imagebar_image" id="imagebar_image_front">
             </div>
         </div>
@@ -93,7 +119,7 @@
                     </div>
                 </label>
             </div>
-            <div class="imagebar_imagearea">
+            <div class="imagebar_imagearea" onclick="image_expand('left')">
                 <img class="imagebar_image" id="imagebar_image_left">
             </div>
         </div>
@@ -107,7 +133,7 @@
                     </div>
                 </label>
             </div>
-            <div class="imagebar_imagearea">
+            <div class="imagebar_imagearea" onclick="image_expand('right')">
                 <img class="imagebar_image" id="imagebar_image_right">
             </div>
         </div>
@@ -121,7 +147,7 @@
                     </div>
                 </label>
             </div>
-            <div class="imagebar_imagearea">
+            <div class="imagebar_imagearea" onclick="image_expand('top')">
                 <img class="imagebar_image" id="imagebar_image_top">
             </div>
         </div>
@@ -135,7 +161,7 @@
                     </div>
                 </label>
             </div>
-            <div class="imagebar_imagearea">
+            <div class="imagebar_imagearea" onclick="image_expand('extra')">
                 <img class="imagebar_image" id="imagebar_image_extra">
             </div>
         </div>
@@ -149,5 +175,6 @@
             </div>
         </div>
     </form>
+    <div id="large_image" onclick="close_large_image()"></div>
 </body>
 </html>
